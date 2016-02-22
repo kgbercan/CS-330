@@ -61,10 +61,62 @@ $program =~s/public static void main \(\w* \[\] args\)\{/MAIN\n/g;
 print $program;
 print "\n\n";
 
-# identifies string literals
-print("STRINGS FOUND:::: \n");
-$program =~s/".*?"/STRINGLITERAL/g;
+# identifies VALUES
+print("VALUES FOUND:::: \n");
+$program =~s/".*?"|\d+|\b(false|true)\b/V/g;
 print $program;
 print "\n\n";
 
+# identifies arithmetic operators
+print("ARITHMETIC OPERATORS FOUND:::: \n");
+$program =~s/[\+\-\/\*]/AOP/g;
+print $program;
+print "\n\n";
 
+# identifies declaration words
+print("TYPE DECLARATIONS FOUND:::: \n");
+$program =~s/\b(String|int|boolean)\b/TYPE/g;
+print $program;
+print "\n\n";
+
+# identifies print statements
+print("PRINT STATEMENT FOUND:::: \n");
+$program =~s/System\.out\.print(ln)?/PRINT/g;
+print $program;
+print "\n\n";
+
+# identifies variable names
+print("VARIABLE NAME (IDENTIFIER) FOUND:::: \n");
+$program =~s/[a-z][a-zA-Z0-9_]*/I/g;
+print $program;
+print "\n\n";
+
+# identifies declared variables
+print("VARIABLE DECLARIATION FOUND:::: \n");
+$program =~s/\bTYPE I\b/I/g;
+print $program;
+print "\n\n";
+
+# identifies terms
+print("TERMS FOUND:::: \n");
+$program =~s/[IV] AOP/T AOP/g;
+print $program;
+print "\n\n";
+
+# identifies terms
+print("TERMS FOUND:::: \n");
+$program =~s/\bV\b/T/g;
+print $program;
+print "\n\n";
+
+# identifies arithmetic expression
+print("ARITHMETIC EXPRESSION FOUND:::: \n");
+$program =~s/\bT( AOP T)?\b/AE/g;
+print $program;
+print "\n\n";
+
+# identifies arithmetic expression
+print("ARITHMETIC EXPRESSION FOUND:::: \n");
+$program =~s/I = AE/S/g;
+print $program;
+print "\n\n";
