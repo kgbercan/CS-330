@@ -7,9 +7,28 @@ print "Hello, World!\n";
 
 $, = "\n";
 
-print(@ary);
+# print(@ary);
 
-foreach $x (@ary){
-	print $x;
+# foreach $x (@ary){
+#	print $x;
 #	push (@ary,$x); this creates an infinite loop
-}
+#}
+
+$x = 4;
+print("x: ".$x);
+print("\n");
+$y = 1;
+print("y: ".$y);
+print("\n");
+$y  = $x;
+print("changing");
+print("\n");
+print("y: ".$y);
+print("\n");
+$x = 99;
+print("x: ".$x);
+print("\n");
+print("y: ".$y);
+print("\n");
+
+
