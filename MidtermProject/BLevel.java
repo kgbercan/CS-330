@@ -52,7 +52,7 @@ class BLevel{
 		
 		//do while
         do {
-            System.out.println("i is: "/*+ i*/);
+            System.out.println("i is: " + i);
             i += 1;
         } while (i < 11);
 		
