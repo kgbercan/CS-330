@@ -25,15 +25,38 @@ class BLevel{
         if (x < 10){
             System.out.println("x<10");
         }
+        else if(x < 15){
+            System.out.println("10<x<15");
+        }
         else{
-            System.out.println("x>=10");
+            System.out.println("x>=15");
         }
         
         /*
         If there are other things that you want to test,
         here is a good place for them.
         */
-
+        
+        
+        //for each
+        int result = 0;
+        for (int i : a){
+        	//result += i;
+        	result = result + i;
+		}
+		
+		//for
+		for (i = 0; i < 10; i ++){
+			System.out.println(i);
+		}
+		
+		//do while
+        do {
+            System.out.println("i is: "/*+ i*/);
+            i += 1;
+        } while (i < 11);
+		
+		
     }
 
 }
