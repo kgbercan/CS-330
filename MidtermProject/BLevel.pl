@@ -59,9 +59,27 @@ $program =~s/".*?"|\d+|\b(false|true)\b/V/g;
 print $program;
 print "\n\n";
 
+# identifies arithmetic shortcuts
+print("++ and -- FOUND:::: \n");
+$program =~s/\+\+|--/AOP V/g;
+print $program;
+print "\n\n";
+
+# identifies arithmetic shortcuts
+print("+= and -= FOUND:::: \n");
+$program =~s/[\+\-]=/= I AOP/g;
+print $program;
+print "\n\n";
+
 # identifies arithmetic operators
 print("ARITHMETIC OPERATORS FOUND:::: \n");
 $program =~s/[\+\-\/\*]/AOP/g;
+print $program;
+print "\n\n";
+
+# identifies conditional operators
+print("CONDITIONAL OPERATORS:::: \n");
+$program =~s/[<>!][=]|[<>]|==/COP/g;
 print $program;
 print "\n\n";
 
@@ -77,7 +95,27 @@ $program =~s/System\.out\.print(ln)?/PRINT/g;
 print $program;
 print "\n\n";
 
-# while, if, else, <= >= == < >
+# identifies while loops
+print("WHILE LOOP FOUND:::: \n");
+$program =~s/\bwhile\b/WHILE/g;
+print $program;
+print "\n\n";
+print("DO WHILE FOUND:::: \n");
+$program =~s/\bdo\b/DO/g;
+print $program;
+print "\n\n";
+
+# identifies for loops
+print("FOR LOOP FOUND:::: \n");
+$program =~s/\bfor\b/FOR/g;
+print $program;
+print "\n\n";
+
+# identifies if/else
+print("CONDITIONALS FOUND:::: \n");
+$program =~s/\b(else if|if|else)\b/COND/g;
+print $program;
+print "\n\n";
 
 # identifies variable names
 print("VARIABLE NAME (IDENTIFIER) FOUND:::: \n");
@@ -103,9 +141,21 @@ $program =~s/\bV\b/T/g;
 print $program;
 print "\n\n";
 
+# identifies terms
+print("TERMS FOUND:::: \n");
+$program =~s/T AOP I/T AOP T/g;
+print $program;
+print "\n\n";
+
+# identifies conditional statements
+print("CONDITIONAL STATEMENT FOUND:::: \n");
+$program =~s/I COP T/CS/g;
+print $program;
+print "\n\n";
+
 # identifies arithmetic expression
 print("ARITHMETIC EXPRESSION FOUND:::: \n");
-$program =~s/\bT( AOP T)?\b/AE/g;
+$program =~s/\bT( AOP T)*\b/AE/g;
 print $program;
 print "\n\n";
 
@@ -121,6 +171,13 @@ $program =~s/\bI\b/T/g;
 print $program;
 print "\n\n";
 
+# identifies terms
+print("TERMS FOUND:::: \n");
+$program =~s/\bI\b/T/g;
+print $program;
+print "\n\n";
+
+
 # identifies arithmetic expressions
 print("ARITHMETIC EXPRESSION FOUND:::: \n");
 $program =~s/\bT\b/AE/g;
@@ -133,6 +190,24 @@ $program =~s/\bPRINT\(AE\)/S/g;
 print $program;
 print "\n\n";
 
+# valid while loops
+print("VALID WHILE LOOPS FOUND:::: \n");
+$program =~s/WHILE(\s)?\(CS\)(;)?/W/g;
+print $program;
+print "\n\n";
+
+# valid if statements
+print("VALID IF STATEMENTS FOUND:::: \n");
+$program =~s/COND(\s)?\(CS\)/COND/g;
+print $program;
+print "\n\n";
+
+# valid for and for each loops
+print("VALID FOR AND FOR EACH STATEMENTS FOUND:::: \n");
+$program =~s/FOR\s?\(((AE \: AE)|(S; CS; AE))\)/F/g;
+print $program;
+print "\n\n";
+
 # cleans up spaces
 print("CLEANED UP:::: \n");
 $program =~s/\s+/ /g;
@@ -141,13 +216,37 @@ print "\n\n";
 
 # identifies code blocks
 print("CODE BLOCKS FOUND:::: \n");
-$program =~s/(S;\s)+/CB/g;
+$program =~s/(S;\s)+/CB /g;
+print $program;
+print "\n\n";
+
+# program control
+print("PROGRAM CONTROL BLOCKS FOUND:::: \n");
+$program =~s/(W{ CB })|(COND{ CB } )+|(F{ CB })|DO { CB } W/CTRL /g;
+print $program;
+print "\n\n";
+
+# cleans up spaces
+print("CLEANED UP:::: \n");
+$program =~s/\s+/ /g;
+print $program;
+print "\n\n";
+
+# groups code blocks
+print("GROUPED CONSECUTIVE CODE BLOCKS:::: \n");
+$program =~s/(CB )+/CB /g;
+print $program;
+print "\n\n";
+
+# groups code blocks
+print("GROUPED CONSECUTIVE CONTROL FLOW BLOCKS:::: \n");
+$program =~s/(CTRL )+/CTRL /g;
 print $program;
 print "\n\n";
 
 # main
 print("MAIN FOUND:::: \n");
-$program =~s/MAIN (CB)?\}/M/g;
+$program =~s/MAIN (CB CTRL )*\}/M/g;
 print $program;
 print "\n\n";
 
@@ -159,6 +258,6 @@ print "\n\n";
 
 # valid program
 print("VALID PROGRAM FOUND:::: \n");
-$program =~s/(IMPORT )?C/P/g;
+$program =~s/(IMPORT )*C/P/g;
 print $program;
 print "\n\n";
