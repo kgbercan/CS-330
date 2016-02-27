@@ -49,7 +49,7 @@ print "\n\n";
 
 # identifies main
 print("MAIN FOUND:::: \n");
-$program =~s/public static void main(\s)?\(\w*(\s)?\[\] args\)(\s)?\{/MAIN\n/g;
+$program =~s/public static void main(\s)?\(\w*\s?\[\] args\)\s?\{/MAIN\n/g;
 print $program;
 print "\n\n";
 
@@ -61,7 +61,7 @@ print "\n\n";
 
 # identifies arithmetic shortcuts
 print("++ and -- FOUND:::: \n");
-$program =~s/\+\+|--/AOP V/g;
+$program =~s/\+\+|--/= I AOP V/g;
 print $program;
 print "\n\n";
 
@@ -85,7 +85,7 @@ print "\n\n";
 
 # identifies declaration words
 print("TYPE DECLARATIONS FOUND:::: \n");
-$program =~s/\b(String|int|boolean)\b/TYPE/g;
+$program =~s/\b(String|int|boolean|double)\b/TYPE/g;
 print $program;
 print "\n\n";
 
@@ -204,7 +204,7 @@ print "\n\n";
 
 # valid for and for each loops
 print("VALID FOR AND FOR EACH STATEMENTS FOUND:::: \n");
-$program =~s/FOR\s?\(((AE \: AE)|(S; CS; AE))\)/F/g;
+$program =~s/FOR\s?\(((AE \: AE)|(S; CS; S))\)/F/g;
 print $program;
 print "\n\n";
 
@@ -216,7 +216,7 @@ print "\n\n";
 
 # identifies code blocks
 print("CODE BLOCKS FOUND:::: \n");
-$program =~s/(S;\s)+/CB /g;
+$program =~s/(\bS; )+/CB /g;
 print $program;
 print "\n\n";
 
@@ -246,13 +246,13 @@ print "\n\n";
 
 # main
 print("MAIN FOUND:::: \n");
-$program =~s/MAIN (CB CTRL )*\}/M/g;
+$program =~s/MAIN ((CB )|(CTRL ))*}/M/g;
 print $program;
 print "\n\n";
 
 # class
 print("CLASS FOUND:::: \n");
-$program =~s/CLASS (M)?\}/C/g;
+$program =~s/CLASS (M\s?)?}/C/g;
 print $program;
 print "\n\n";
 
