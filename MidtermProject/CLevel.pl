@@ -1,19 +1,11 @@
 #!perl
 
+# this is the c-level midterm code
+# checks syntax for simple code
 
-open(INPUT,"<CLevel.java");
+open(INPUT,"<CLevel.java") or die( "Could not open source: $!\n" );
 @lines = <INPUT>;
 close(INPUT);
-
-
-# multiline comment
-# import statement
-# single line comment
-# class
-# main
-# 
-
-
 
 # String: ~s/".*?"/STRING/g
 
@@ -51,13 +43,13 @@ print "\n\n";
 
 # identifies class declarations
 print("CLASSES FOUND:::: \n");
-$program =~s/class [A-Z]\w*\{/CLASS\n/g;
+$program =~s/(public |private |protected )?class [A-Z]\w*\s?\{/CLASS\n/g;
 print $program;
 print "\n\n";
 
 # identifies main
 print("MAIN FOUND:::: \n");
-$program =~s/public static void main \(\w* \[\] args\)\{/MAIN\n/g;
+$program =~s/public static void main(\s)?\(\w*(\s)?\[\] args\)(\s)?\{/MAIN\n/g;
 print $program;
 print "\n\n";
 
@@ -115,8 +107,56 @@ $program =~s/\bT( AOP T)?\b/AE/g;
 print $program;
 print "\n\n";
 
-# identifies arithmetic expression
-print("ARITHMETIC EXPRESSION FOUND:::: \n");
+# identifies statement
+print("STATEMENT FOUND:::: \n");
 $program =~s/I = AE/S/g;
+print $program;
+print "\n\n";
+
+# identifies terms
+print("TERMS FOUND:::: \n");
+$program =~s/\bI\b/T/g;
+print $program;
+print "\n\n";
+
+# identifies arithmetic expressions
+print("ARITHMETIC EXPRESSION FOUND:::: \n");
+$program =~s/\bT\b/AE/g;
+print $program;
+print "\n\n";
+
+# identifies statements
+print("PRINT STATEMENTS FOUND:::: \n");
+$program =~s/\bPRINT\(AE\)/S/g;
+print $program;
+print "\n\n";
+
+# cleans up spaces
+print("CLEANED UP:::: \n");
+$program =~s/\s+/ /g;
+print $program;
+print "\n\n";
+
+# identifies code blocks
+print("CODE BLOCKS FOUND:::: \n");
+$program =~s/(S;\s)+/CB/g;
+print $program;
+print "\n\n";
+
+# main
+print("MAIN FOUND:::: \n");
+$program =~s/MAIN (CB)?\}/M/g;
+print $program;
+print "\n\n";
+
+# class
+print("CLASS FOUND:::: \n");
+$program =~s/CLASS (M)?\}/C/g;
+print $program;
+print "\n\n";
+
+# valid program
+print("VALID PROGRAM FOUND:::: \n");
+$program =~s/(IMPORT )?C/P/g;
 print $program;
 print "\n\n";
