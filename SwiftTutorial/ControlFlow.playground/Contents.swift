@@ -26,8 +26,9 @@ case "CT","ME","MA","NH","VT":
     fallthrough
 case "Somewhere in New England":
     print("New England is the best region in the country.")
+    fallthrough
 default:
-    print("That is not an American state, or I was too lazy to type all the abbreviations. Sorry.")
+    print("I was too lazy to type all the abbreviations. Sorry.")
 }
 
 let yetAnotherPoint = (1, -1)
