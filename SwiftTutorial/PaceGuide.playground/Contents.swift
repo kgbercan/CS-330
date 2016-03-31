@@ -425,3 +425,29 @@ func pace(min: Int, max: Int, test: String){
 pace(80,max:95,test:"1:48")
 pace(80,max:80,test:"1:48")
 
+
+// rower class
+class Rower{
+    
+    // name and most recent 500
+    let name: String
+    let fivehund: String
+    
+    init(name: String, fivehund: String){
+        self.name = name
+        self.fivehund = fivehund
+    }
+    
+    func getName() -> String{
+        return(name)
+    }
+    
+    func getTime() -> String{
+        return(fivehund)
+    }
+
+}
+
+let k = Rower(name: "Karina B.", fivehund: "1:47.9")
+print(k.getName())
+print(k.getTime())
