@@ -416,18 +416,18 @@ class PaceGuideModel{
     }
     
     // pace finder
-    func pace(min: Int, max: Int, test: String) -> [(Int:String)]{
-        var goals = []
-        if(min==max){
-            goals.add(min:paceGuide[min]![test]!)
+    func pace(min: Int, max: Int, test: String) -> String{
+        var goals: [String] = []
+        var l = Int(min)
+        let h = Int(max)
+        while(l<=h){
+            goals.append(paceGuide[l]![test]!)
+            l+=5
         }
-        else{
-            var l = Int(min)
-            let h = Int(max)
-            while(l<=h){
-                l paceGuide[l]![test]!)")
-                l+=5
-            }
+        var report = ""
+        for s in goals {
+            report = report + "\(s) -> "
         }
+        return(report)
     }
 }
