@@ -7,25 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A6D98841CD7BBB700A096EF /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D98831CD7BBB700A096EF /* RangeSlider.swift */; };
+		9A6D98861CD7C16500A096EF /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D98851CD7C16500A096EF /* RangeSliderThumbLayer.swift */; };
+		9A6D98881CD7C78400A096EF /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D98871CD7C78400A096EF /* RangeSliderTrackLayer.swift */; };
 		9AC01BBE1CADA4CD00D787CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC01BBD1CADA4CD00D787CE /* AppDelegate.swift */; };
-		9AC01BC01CADA4CD00D787CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC01BBF1CADA4CD00D787CE /* ViewController.swift */; };
+		9AC01BC01CADA4CD00D787CE /* PaceGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC01BBF1CADA4CD00D787CE /* PaceGuideViewController.swift */; };
 		9AC01BC31CADA4CD00D787CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC01BC11CADA4CD00D787CE /* Main.storyboard */; };
 		9AC01BC51CADA4CD00D787CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC01BC41CADA4CD00D787CE /* Assets.xcassets */; };
 		9AC01BC81CADA4CD00D787CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC01BC61CADA4CD00D787CE /* LaunchScreen.storyboard */; };
 		9AC01BD01CADA5D900D787CE /* Rower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC01BCF1CADA5D900D787CE /* Rower.swift */; };
 		9AC01BD21CADAA9C00D787CE /* PaceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC01BD11CADAA9C00D787CE /* PaceGuideModel.swift */; };
+		9AFA089A1CDBB05900CF1E98 /* RowerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA08991CDBB05900CF1E98 /* RowerTableViewCell.swift */; };
+		9AFA089F1CDBB50C00CF1E98 /* RowerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA089D1CDBB50C00CF1E98 /* RowerTableViewController.swift */; };
+		9AFA08A01CDBB50C00CF1E98 /* RowerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AFA089E1CDBB50C00CF1E98 /* RowerTableViewController.xib */; };
+		9AFA08A21CDD6B9D00CF1E98 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AFA08A11CDD6B9D00CF1E98 /* PageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A6D98831CD7BBB700A096EF /* RangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		9A6D98851CD7C16500A096EF /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
+		9A6D98871CD7C78400A096EF /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
 		9AC01BBA1CADA4CD00D787CE /* PaceGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaceGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AC01BBD1CADA4CD00D787CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AC01BBF1CADA4CD00D787CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9AC01BBF1CADA4CD00D787CE /* PaceGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceGuideViewController.swift; sourceTree = "<group>"; };
 		9AC01BC21CADA4CD00D787CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AC01BC41CADA4CD00D787CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AC01BC71CADA4CD00D787CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AC01BC91CADA4CD00D787CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AC01BCF1CADA5D900D787CE /* Rower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rower.swift; sourceTree = "<group>"; };
 		9AC01BD11CADAA9C00D787CE /* PaceGuideModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaceGuideModel.swift; sourceTree = "<group>"; };
+		9AFA08991CDBB05900CF1E98 /* RowerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerTableViewCell.swift; sourceTree = "<group>"; };
+		9AFA089D1CDBB50C00CF1E98 /* RowerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowerTableViewController.swift; sourceTree = "<group>"; };
+		9AFA089E1CDBB50C00CF1E98 /* RowerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowerTableViewController.xib; sourceTree = "<group>"; };
+		9AFA08A11CDD6B9D00CF1E98 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +56,8 @@
 		9AC01BB11CADA4CD00D787CE = {
 			isa = PBXGroup;
 			children = (
+				9AFA089D1CDBB50C00CF1E98 /* RowerTableViewController.swift */,
+				9AFA089E1CDBB50C00CF1E98 /* RowerTableViewController.xib */,
 				9AC01BD11CADAA9C00D787CE /* PaceGuideModel.swift */,
 				9AC01BCF1CADA5D900D787CE /* Rower.swift */,
 				9AC01BBC1CADA4CD00D787CE /* PaceGuide */,
@@ -61,11 +77,16 @@
 			isa = PBXGroup;
 			children = (
 				9AC01BBD1CADA4CD00D787CE /* AppDelegate.swift */,
-				9AC01BBF1CADA4CD00D787CE /* ViewController.swift */,
+				9AC01BBF1CADA4CD00D787CE /* PaceGuideViewController.swift */,
 				9AC01BC11CADA4CD00D787CE /* Main.storyboard */,
+				9AFA08A11CDD6B9D00CF1E98 /* PageViewController.swift */,
+				9AFA08991CDBB05900CF1E98 /* RowerTableViewCell.swift */,
 				9AC01BC41CADA4CD00D787CE /* Assets.xcassets */,
 				9AC01BC61CADA4CD00D787CE /* LaunchScreen.storyboard */,
 				9AC01BC91CADA4CD00D787CE /* Info.plist */,
+				9A6D98831CD7BBB700A096EF /* RangeSlider.swift */,
+				9A6D98851CD7C16500A096EF /* RangeSliderThumbLayer.swift */,
+				9A6D98871CD7C78400A096EF /* RangeSliderTrackLayer.swift */,
 			);
 			path = PaceGuide;
 			sourceTree = "<group>";
@@ -131,6 +152,7 @@
 				9AC01BC81CADA4CD00D787CE /* LaunchScreen.storyboard in Resources */,
 				9AC01BC51CADA4CD00D787CE /* Assets.xcassets in Resources */,
 				9AC01BC31CADA4CD00D787CE /* Main.storyboard in Resources */,
+				9AFA08A01CDBB50C00CF1E98 /* RowerTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +163,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AC01BC01CADA4CD00D787CE /* ViewController.swift in Sources */,
+				9AC01BC01CADA4CD00D787CE /* PaceGuideViewController.swift in Sources */,
+				9A6D98841CD7BBB700A096EF /* RangeSlider.swift in Sources */,
+				9A6D98881CD7C78400A096EF /* RangeSliderTrackLayer.swift in Sources */,
+				9AFA089F1CDBB50C00CF1E98 /* RowerTableViewController.swift in Sources */,
 				9AC01BBE1CADA4CD00D787CE /* AppDelegate.swift in Sources */,
 				9AC01BD01CADA5D900D787CE /* Rower.swift in Sources */,
+				9AFA089A1CDBB05900CF1E98 /* RowerTableViewCell.swift in Sources */,
+				9AFA08A21CDD6B9D00CF1E98 /* PageViewController.swift in Sources */,
 				9AC01BD21CADAA9C00D787CE /* PaceGuideModel.swift in Sources */,
+				9A6D98861CD7C16500A096EF /* RangeSliderThumbLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +324,7 @@
 				9AC01BCE1CADA4CD00D787CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

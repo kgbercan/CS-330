@@ -1,5 +1,17 @@
 import Foundation
 
+
+var y: Int? = 5
+print(y)
+print(y!)
+y = nil
+
+var z: Int = 5
+z = nil
+
+
+/*
+
 // converts a min:sec:msec format to all seconds
 func splitToSec (split : (min:Int, sec:Int, msec:Int)) -> Double{
     return(Double(split.min)*60 + Double(split.sec) + (Double(split.msec)/60))
@@ -450,4 +462,4 @@ class Rower{
 
 let k = Rower(name: "Karina B.", fivehund: "1:47.9")
 print(k.getName())
-print(k.getTime())
+print(k.getTime())*/

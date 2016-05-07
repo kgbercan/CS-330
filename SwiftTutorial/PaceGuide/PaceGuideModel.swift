@@ -9,7 +9,7 @@
 import Foundation
 
 // pace look-up
-class PaceGuideModel{
+class PaceTable{
     
     ////// percentages \\\\\\
     // 500 time : goal \\
@@ -408,25 +408,25 @@ class PaceGuideModel{
     ////// percentages \\\\\\
     
     // full guide for look-up
-    var paceGuide: [Int:[String:String]]
+    var paceTable: [Int:[String:String]]
     
     // constructor
     init(){
-        self.paceGuide = [95:ninetyfive, 90:ninety, 85:eightyfive, 80:eighty, 75:seventyfive, 70:seventy, 65:sixtyfive, 60:sixty, 55:fiftyfive]
+        self.paceTable = [95:ninetyfive, 90:ninety, 85:eightyfive, 80:eighty, 75:seventyfive, 70:seventy, 65:sixtyfive, 60:sixty, 55:fiftyfive]
     }
     
     // pace finder
     func pace(min: Int, max: Int, test: String) -> String{
-        var goals: [String] = []
         var l = Int(min)
-        let h = Int(max)
-        while(l<=h){
-            goals.append(paceGuide[l]![test]!)
-            l+=5
-        }
+        var h = Int(max)
         var report = ""
-        for s in goals {
-            report = report + "\(s) -> "
+        while(l<h){
+            report = report + "\(l)%: \(paceTable[l]![test]!)\n"
+            l = l+5
+        }
+        while(l>=h){
+            report = report + "\(h)%: \(paceTable[h]![test]!)\n"
+            h = h+5
         }
         return(report)
     }
