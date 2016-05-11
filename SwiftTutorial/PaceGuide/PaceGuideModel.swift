@@ -1,5 +1,5 @@
 //
-//  PaceGuideModel.swift
+//  PaceTable.swift
 //  PaceGuide
 //
 //  Created by Karina Bercan on 3/31/16.
@@ -12,6 +12,10 @@ import Foundation
 class PaceTable{
     
     ////// percentages \\\\\\
+    
+    //valid 500 times
+    let valid: Set<String> = ["2:10", "2:09", "2:08", "2:07", "2:06", "2:05", "2:04", "2:03", "2:02", "2:01", "2:00", "1:59", "1:58", "1:57", "1:56", "1:55", "1:54", "1:53", "1:52", "1:51", "1:50", "1:49", "1:48", "1:47", "1:46", "1:45", "1:44", "1:43", "1:42", "1:41", "1:40", "1:39", "1:38", "1:37", "1:36", "1:35", "1:34", "1:33", "1:32", "1:31", "1:30"]
+    
     // 500 time : goal \\
     let ninetyfive: [String:String] = ["2:10": "2:16.5",
                                        "2:09": "2:15.4",
@@ -420,14 +424,27 @@ class PaceTable{
         var l = Int(min)
         var h = Int(max)
         var report = ""
-        while(l<h){
-            report = report + "\(l)%: \(paceTable[l]![test]!)\n"
-            l = l+5
+        // if the 500m time is valid
+        if valid.contains(test){
+            // decides which number is higher
+            while(l<h){
+                // adds percentages to the string to report in order
+                report = report + "\(l)%: \(paceTable[l]![test]!)\n"
+                // increments until it gets to the higher percentage
+                l = l+5
+            }
+            while(l>=h){
+                // always prints the higher percentage
+                // but this also lets the slider flip high and low thumbs
+                // so if this function receives a higher value first, it will print the values in order anyway
+                report = report + "\(h)%: \(paceTable[h]![test]!)\n"
+                h = h+5
+            }
         }
-        while(l>=h){
-            report = report + "\(h)%: \(paceTable[h]![test]!)\n"
-            h = h+5
+        else{
+            report = "Please enter a valid 500m time: one between 1:30 and 2:10, rounded to the nearest second. Example: 1:47"
         }
+        // a string with the percentages reported
         return(report)
     }
 }

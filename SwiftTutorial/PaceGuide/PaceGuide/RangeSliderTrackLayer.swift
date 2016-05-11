@@ -1,9 +1,7 @@
 //
 //  RangeSliderTrackLayer.swift
 //  PaceGuide
-//
-//  Created by Karina Bercan on 5/2/16.
-//  Copyright © 2016 Karina Bercan. All rights reserved.
+//  Code from Ray Wenderlich: https://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
 //
 
 import UIKit
@@ -11,6 +9,8 @@ import QuartzCore
 
 class RangeSliderTrackLayer: CALayer {
     weak var rangeSlider: RangeSlider?
+    
+    // graphics for the track
     
     override func drawInContext(ctx: CGContext) {
         if let slider = rangeSlider{

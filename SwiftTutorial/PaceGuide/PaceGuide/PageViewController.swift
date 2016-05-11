@@ -12,9 +12,11 @@ import UIKit
 class PageViewController: UIPageViewController {
     
     private(set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newViewController("PaceGuide"), self.newViewController("RowerTable")]
+        // the names of the views/pages to flip through
+        return [self.newViewController("PaceGuideNavigation"), self.newViewController("RowerTableNavigation")]
     }()
     
+    // when the application loads
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,7 +77,7 @@ extension PageViewController: UIPageViewControllerDataSource{
     
     private func newViewController(id: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
-            instantiateViewControllerWithIdentifier("\(id)ViewController")
+            instantiateViewControllerWithIdentifier("\(id)Controller")
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {

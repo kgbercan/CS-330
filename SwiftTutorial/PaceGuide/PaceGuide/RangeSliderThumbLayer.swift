@@ -2,7 +2,7 @@
 //  RangeSliderThumbLayer.swift
 //  PaceGuide
 //
-// Code from Ray Wenderlich: https://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
+//  Code from Ray Wenderlich: https://www.raywenderlich.com/76433/how-to-make-a-custom-control-swift
 //
 //
 
@@ -10,11 +10,15 @@ import UIKit
 import QuartzCore
 
 class RangeSliderThumbLayer: CALayer {
+    
+    // graphics for the thumbs
+    
     var highlighted: Bool = false{
         didSet{
             setNeedsDisplay()
         }
     }
+    
     //reference back to the parent range slider
     //weak variable to avoid a retain cycle
     weak var rangeSlider: RangeSlider?

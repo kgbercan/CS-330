@@ -12,7 +12,7 @@ class Rower{
     
     // name and most recent 500
     let name: String
-    let fivehund: String
+    var fivehund: String
     
     // constructor
     init(name: String, fivehund: String){
@@ -20,7 +20,7 @@ class Rower{
         self.fivehund = fivehund
     }
     
-    // returns name
+   /* // returns name
     func getName() -> String{
         return(name)
     }
@@ -28,6 +28,6 @@ class Rower{
     // returns 500 time
     func getTime() -> String{
         return(fivehund)
-    }
+    }*/
     
 }

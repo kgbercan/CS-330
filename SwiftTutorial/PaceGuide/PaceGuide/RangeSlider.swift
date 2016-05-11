@@ -12,49 +12,62 @@ import QuartzCore
 class RangeSlider: UIControl {
     
     //to render the various components of the slider control
+    // the track
     let trackLayer = RangeSliderTrackLayer()
+    // the lower thumb
     let lowerThumbLayer = RangeSliderThumbLayer()
+    // the high thumb
     let upperThumbLayer = RangeSliderThumbLayer()
     //used to track the touch locations
     var previousLocation = CGPoint()
     
+    // cant go below 55%
     var minimumValue: Double = 55{
         didSet{
             updateLayerFrames()
         }
     }
+    // cant go above 95%
     var maximumValue: Double = 95{
         didSet{
             updateLayerFrames()
         }
     }
+    // initializes the lower value to 60
     var lowerValue: Double = 60{
         didSet{
             updateLayerFrames()
         }
     }
+    // initializes the higher value to 70
     var upperValue: Double = 70{
         didSet{
             updateLayerFrames()
         }
     }
     
+    // changes the color of the track
     var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0){
         didSet{
             trackLayer.setNeedsDisplay()
         }
     }
+
     var trackHighlightTintColor: UIColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0){
         didSet{
             trackLayer.setNeedsDisplay()
         }
     }
+    
+    // changes the color of the thumbs
     var thumbTintColor: UIColor = UIColor.whiteColor(){
         didSet{
             lowerThumbLayer.setNeedsDisplay()
             upperThumbLayer.setNeedsDisplay()
         }
     }
+    
+    // makes the thumbs circles
     var curvaceousness: CGFloat = 1.0{
         didSet{
             trackLayer.setNeedsDisplay()
@@ -64,10 +77,12 @@ class RangeSlider: UIControl {
     }
     
     //for layout purposes
+    // sets the size of the thumb
     var thumbWidth: CGFloat{
         return(CGFloat(bounds.height))
     }
     
+    // frame is a rectangle
     override var frame: CGRect {
         didSet {
             updateLayerFrames()
@@ -107,14 +122,16 @@ class RangeSlider: UIControl {
         trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height / 3)
         trackLayer.setNeedsDisplay()
         
+        // sets the thumb to initial value
         let lowerThumbCenter = CGFloat(positionForValue(lowerValue))
-        
+        // sets the size of the thumb frame
         lowerThumbLayer.frame = CGRect(x: lowerThumbCenter - thumbWidth / 2.0, y: 0.0, width: thumbWidth, height: thumbWidth)
         lowerThumbLayer.setNeedsDisplay()
         
+        // sets the upper thmb to initial value
         let upperThumbCenter = CGFloat(positionForValue(upperValue))
-        upperThumbLayer.frame = CGRect(x: upperThumbCenter - thumbWidth / 2.0, y: 0.0,
-                                       width: thumbWidth, height: thumbWidth)
+        // sets the size of the thumb frame
+        upperThumbLayer.frame = CGRect(x: upperThumbCenter - thumbWidth / 2.0, y: 0.0, width: thumbWidth, height: thumbWidth)
         upperThumbLayer.setNeedsDisplay()
         
         CATransaction.commit()
